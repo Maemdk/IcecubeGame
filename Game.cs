@@ -11,6 +11,7 @@ namespace TestGame
         private Player _player;
         private int _windowWidth;
         private int _windowHeight;
+        private int _score;
 
         public Game()
         {
@@ -38,12 +39,18 @@ namespace TestGame
 
             if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
-                _player.Position = new Vector2(_player.Position.X + _player.Speed, _player.Position.Y);
+                if (_player.Position.X < _windowWidth - _player.Size)
+                {
+                    _player.Position = new Vector2(_player.Position.X + _player.Speed, _player.Position.Y);
+                }
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.A))
             {
-                _player.Position = new Vector2(_player.Position.X - _player.Speed, _player.Position.Y);
+                if (_player.Position.X > 0)
+                {
+                    _player.Position = new Vector2(_player.Position.X - _player.Speed, _player.Position.Y);
+                }
             }
 
             base.Update(gameTime);
