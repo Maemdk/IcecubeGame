@@ -44,3 +44,9 @@
 /processorParam:TextureFormat=Color
 /build:images/icedcoffee.jpg
 
+#begin sounds/iceyay.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/iceyay.wav
+
