@@ -12,6 +12,7 @@ namespace TestGame
         private int _windowWidth;
         private int _windowHeight;
         private int _score;
+        private SpriteFont _font;
 
         public Game()
         {
@@ -29,6 +30,8 @@ namespace TestGame
 
             _player = new Player(Content.Load<Texture2D>("images/icedcoffee"), "John", 5,
                 new Vector2(_windowWidth / 2.0f - 50, _windowHeight - 100), 100);
+
+            _font = Content.Load<SpriteFont>("font");
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,10 +61,11 @@ namespace TestGame
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Red);
+            GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin();
             _spriteBatch.Draw(_player.Texture, _player.DestinationRectangle, Color.White);
+            _spriteBatch.DrawString(_font, $"Score: {_score}", new Vector2(10, 10), Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);
